@@ -65,7 +65,7 @@ _exemples :_
 ## Auteurs
 Les auteurs du projet ici !
 
-**Lucas BELLIER** _alias_ [@ImJustLucas](https://github.com/ImJustLucas)
-**Théo MAUDET** _alias_ [@CesTheo](https://github.com/CesTheo)
-**Younes BESSA** _alias_ [@YounesBessa](https://github.com/YounesBessa)
+**Lucas BELLIER** _alias_ [@ImJustLucas](https://github.com/ImJustLucas)<br>
+**Théo MAUDET** _alias_ [@CesTheo](https://github.com/CesTheo)<br>
+**Younes BESSA** _alias_ [@YounesBessa](https://github.com/YounesBessa)<br>
 **Benjamin HERVE** _alias_ [@GreaterDogFr](https://github.com/GreaterDogFr)
