@@ -56,11 +56,7 @@ Une fois l'API lancé, ouvrez un nouveau terminal
 
 ## Fabriqué avec
 
-Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
-
-_exemples :_
-* [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
-* [Atom](https://atom.io/) - Editeur de textes
+* [React.js](https://fr.reactjs.org/) - Framework JS (front-end)
 
 ## Auteurs
 Les auteurs du projet ici !
