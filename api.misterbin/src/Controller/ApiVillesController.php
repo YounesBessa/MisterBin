@@ -37,7 +37,7 @@ class ApiVillesController extends AbstractController
         $this->entityManager = $em;
     }
 
-    #[Route('/api', name: 'api')]
+    #[Route('/cityApi', name: 'cityApi')]
     public function index(): Response
     {
         $data = [
