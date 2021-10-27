@@ -14,8 +14,15 @@ use Symfony\Component\Serializer\Serializer;
 class ApiVillesController extends AbstractController
 {
 
-    #[Serializer]
+    /**
+     * @Serializer
+     */
     private $serializer;
+
+    /**
+     * @var ObjectManager
+     */
+    private $entityManager;
 
     public function __construct(EntityManagerInterface $em)
     {
@@ -35,7 +42,7 @@ class ApiVillesController extends AbstractController
     {
         $data = [
             'data' => null,
-            'message' => 'Start coding your api in Controller/ApiVillesController'
+            'message' => 'Fuck younes'
         ];
         $content = $this->serializer->serialize($data, 'json', ['json_encode_options' => JSON_UNESCAPED_SLASHES]);
 
