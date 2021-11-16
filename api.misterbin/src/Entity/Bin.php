@@ -23,6 +23,26 @@ class Bin
      */
     private $city;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Name;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $adress;
+
+    /**
+     * @ORM\Column(type="bigint")
+     */
+    private $lat;
+
+    /**
+     * @ORM\Column(type="bigint")
+     */
+    private $lon;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -36,6 +56,54 @@ class Bin
     public function setCity(?City $city): self
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->Name;
+    }
+
+    public function setName(string $Name): self
+    {
+        $this->Name = $Name;
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): self
+    {
+        $this->adress = $adress;
+
+        return $this;
+    }
+
+    public function getLat(): ?string
+    {
+        return $this->lat;
+    }
+
+    public function setLat(string $lat): self
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    public function getLon(): ?string
+    {
+        return $this->lon;
+    }
+
+    public function setLon(string $lon): self
+    {
+        $this->lon = $lon;
 
         return $this;
     }
