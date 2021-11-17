@@ -24,10 +24,6 @@ class City
      */
     private $Name;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Bin::class, mappedBy="city")
-     */
-    private $bins;
 
     public function __construct()
     {
@@ -47,36 +43,6 @@ class City
     public function setName(string $Name): self
     {
         $this->Name = $Name;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Bin[]
-     */
-    public function getBins(): Collection
-    {
-        return $this->bins;
-    }
-
-    public function addBin(Bin $bin): self
-    {
-        if (!$this->bins->contains($bin)) {
-            $this->bins[] = $bin;
-            $bin->setCity($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBin(Bin $bin): self
-    {
-        if ($this->bins->removeElement($bin)) {
-            // set the owning side to null (unless already changed)
-            if ($bin->getCity() === $this) {
-                $bin->setCity(null);
-            }
-        }
 
         return $this;
     }
