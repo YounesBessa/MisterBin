@@ -37,12 +37,12 @@ class ApiVillesController extends AbstractController
         $this->entityManager = $em;
     }
 
-    #[Route('/getBinByApi', name: 'cityApi')]
+    #[Route('/getAllBin', name: 'getAllBin')]
     public function index(): Response
     {
         $data = [
             'data' => null,
-            'message' => 'Route api to get all bin by city'
+            'message' => 'Route api to get all bin'
         ];
         $content = $this->serializer->serialize($data, 'json', ['json_encode_options' => JSON_UNESCAPED_SLASHES]);
 

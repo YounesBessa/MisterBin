@@ -18,12 +18,6 @@ class Bin
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=City::class, inversedBy="bins")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $city;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $Name;
@@ -46,18 +40,6 @@ class Bin
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getCity(): ?City
-    {
-        return $this->city;
-    }
-
-    public function setCity(?City $city): self
-    {
-        $this->city = $city;
-
-        return $this;
     }
 
     public function getName(): ?string
