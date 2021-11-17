@@ -4,7 +4,7 @@ const Navbar: React.FC = () => {
 
   return (
     <Container>
-      <Brand href={"#"}>
+      <NavLink href={"#"}>
         {/* <BrandLogo
           src={"./static/images/logo/onruntime.svg"}
           draggable={false}
@@ -12,16 +12,16 @@ const Navbar: React.FC = () => {
           width={48}
         /> */}
         <BrandTitle>MisterBin</BrandTitle>
-      </Brand>
+      </NavLink>
       <Nav>
         <NavItem>
           <NavLink href={"#"}>
-            Projects
+            Accueil
           </NavLink>
         </NavItem>
         <NavItem>
           <NavLink href={"#"}>
-            About
+            Voir les villes
           </NavLink>
         </NavItem>
       </Nav>
@@ -31,25 +31,18 @@ const Navbar: React.FC = () => {
 
 const Container = styled.nav`
   display: flex;
+  width: 88%;
   height: 60px;
-  padding: 0 15px;
+  margin: 0 auto;
+  /* padding: 0 80px; */
   align-items: center;
   user-select: none;
   justify-content: space-between;
   background-color: #6EDE8A;
+  border-bottom: 1px solid black;
+  margin-bottom: 25px;
 `;
 
-const Brand = styled.a`
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  filter: brightness(0.75);
-  transition: all 0.2s;
-  :hover {
-    filter: brightness(1);
-  }
-`;
 
 // const BrandLogo = styled.img`
 //   height: 30px;
@@ -73,9 +66,10 @@ const Nav = styled.ul`
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
+  margin-right: 25px;
 `;
 
-const NavItem = styled.li`
+const NavItem = styled.span`
   margin: 0 15px;
   :first-child {
     margin-left: 0;
@@ -92,6 +86,11 @@ const NavLink = styled.a`
   font-weight: 400;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  margin-left: 25px;
+  :hover{
+    text-decoration: underline;
+  }
 `;
 
 export default Navbar;
