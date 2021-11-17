@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "./components/Navbar";
+import Map from "./components/Map";
 import Card from "./components/Card";
 import Wave from "./components/Wave";
 // import Image from "./components/Image";
