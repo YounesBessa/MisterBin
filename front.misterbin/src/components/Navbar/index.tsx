@@ -40,7 +40,7 @@ const Container = styled.nav`
   justify-content: space-between;
   background-color: #6EDE8A;
   border-bottom: 1px solid black;
-  margin-bottom: 25px;
+  margin-bottom: 90px;
 `;
 
 
