@@ -82,7 +82,7 @@ const NavItem = styled.span`
 const NavLink = styled.a`
   position: relative;
   /* color: rgb(255, 255, 255); */
-  color: black;
+  color: #302225;
   font-weight: 400;
   display: flex;
   align-items: center;

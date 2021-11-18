@@ -25,9 +25,12 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 width: 280px;
-height: 288px;
+height: 350px;
 border-radius: 25px;
 margin-top: 50px;
+position: relative;
+top: 40px;
+z-index:3
 `
   
 

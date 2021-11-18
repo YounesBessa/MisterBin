@@ -10,6 +10,7 @@ function App() {
     <AppContainer>
       <Navbar/>
       <Body>
+      <GreenContainer>
         <Featured>
       <Title>
       Trouvez la benne à verre la plus proche de chez vous avec MisterBin
@@ -21,12 +22,13 @@ function App() {
           width={120}
           height={120}
         />
-      <Button>Commencer</Button>
+      <Button>COMMENCER</Button>
         {/* <Image src="../public/static/images/recycle.png" alt="" width={3200}height={23}/> */}
       </Card>
       </Featured>
-      </Body> 
+      </GreenContainer> 
       <Wave/>
+      </Body>
     </AppContainer>
   );
 }
@@ -34,9 +36,13 @@ function App() {
 const AppContainer = styled.div`
 background-color:#6EDE8A;
 font-family:'Montserrat-Light';
+/* color: #222222; */
+color: #302225;
 `
 
-const Body = styled.div`
+const Body = styled.div``
+
+const GreenContainer = styled.div`
 display: flex;
 justify-content: center;
 margin: 0 130px;
@@ -62,10 +68,17 @@ background-color:#008000;
 color: white;
 width:157px;
 height: 50px;
-box-shadow: 0px 4px 25px 5px rgba(0, 0, 0, 0.25);
+outline: none;
+border: 1px solid #008000;
 border-radius: 10px;
 font-family: 'Montserrat-Light';
 font-size: larger;
+cursor: pointer;
+:hover{
+  background-color: white;
+  color:#008000;
+  transition: all 0.2s;
+}
 `
 
 
