@@ -1,9 +1,16 @@
+import { ReactNode } from "react";
 import styled from "styled-components";
 
-const Card: React.FC = () => {
+type Props ={
+  children?: ReactNode;
+}
+
+const Card: React.FC<Props> = ({children}:Props) => {
 
   return (
-    <Container></Container>
+    <Container>
+      {children}
+    </Container>
   );
 };
 
@@ -14,9 +21,17 @@ box-sizing: border-box;
 box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
 backdrop-filter: blur(40px);
 display: flex;
-width: 320px;
-height: 288px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 280px;
+height: 350px;
 border-radius: 25px;
+z-index:3;
+position: relative;
+top: 40px;
+margin-right: 60px;
+margin-left: 60px;
 `
   
 

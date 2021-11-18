@@ -40,7 +40,7 @@ const Container = styled.nav`
   justify-content: space-between;
   background-color: #6EDE8A;
   border-bottom: 1px solid black;
-  margin-bottom: 25px;
+  margin-bottom: 90px;
 `;
 
 
@@ -82,7 +82,7 @@ const NavItem = styled.span`
 const NavLink = styled.a`
   position: relative;
   /* color: rgb(255, 255, 255); */
-  color: black;
+  color: #302225;
   font-weight: 400;
   display: flex;
   align-items: center;
