@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Bin;
 use App\Repository\BinRepository;
-use App\Repository\CityRepository;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\Serializer\Serializer;
@@ -25,7 +26,7 @@ class BinController extends AbstractController
     /**
      * @var ObjectManager
      */
-    private $entityManager;
+    private $manager;
 
     public function __construct(EntityManagerInterface $em)
     {
@@ -40,50 +41,59 @@ class BinController extends AbstractController
         $this->entityManager = $em;
     }
 
-    #[Route('/updateBin', name: 'updateBin')]
-    public function updateBin(BinRepository $binRepository, CityRepository $cityRepository): Response
+    #[Route('/updateBin', name: 'updateBin', methods: ['GET'])]
+    public function updateBin(EntityManagerInterface $manager, BinRepository $binRepository): Response
     {
 
         $httpClient = HttpClient::create();
-        $reponseApi = $httpClient->request('GET', 'https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=points-dapport-volontaire-dechets-et-moyens-techniques&q=&lang=fr&rows=10000&refine.flux=R%C3%A9cup%27verre');
-        $content = json_decode($reponseApi->getContent(), true);
-
-        $content = $content['records'];
-        $allBin = $binRepository->findAll();
-
-
+        $raw = $httpClient->request('GET', 'https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=points-dapport-volontaire-dechets-et-moyens-techniques&q=&lang=fr&rows=10000&refine.flux=R%C3%A9cup%27verre');
+        $jsonAPI = json_decode($raw->getContent(), true);
+        $content = $jsonAPI['records'];
+        $newBinCreated = 0;
 
         foreach ($content as $item) {
+            $existingBin = $binRepository->findOneBy([
+                'Name' => $item['recordid'],
+            ]);
 
-            foreach ($allBin as $bin) {
-                if ($bin->getName() === $item['recordid']) {
-                    //yezs
+            if (empty($existingBin) || is_null($existingBin)) {
+                $newBin = new Bin();
+                $newBin->setName($item['recordid']);
+                if (empty($item['fields']['voie']) || $item['fields']['voie'] == '') {
+                    $item['fields']['voie'] = 'Rue inconnue';
+                }
+                if (empty($item['fields']['numero']) || $item['fields']['numero'] == '') {
+                    $item['fields']['numero'] = 'Numero inconnu';
+                }
+
+                $newBin->setAdress($item['fields']['numero'] . ', ' . $item['fields']['voie']);
+                $newBin->setLon($item['geometry']['coordinates'][0]);
+                $newBin->setLat($item['geometry']['coordinates'][1]);
+                $newBinCreated++;
+                $manager->persist($newBin);
+            } else {
+                $apiRecordsID = array_column($content, 'recordid');
+                if (!in_array($existingBin->getName(), $apiRecordsID)) {
+                    $manager->remove($existingBin);
+                } else {
+                    if ($existingBin->getLat() != $item['geometry']['coordinates'][1]) {
+                        $existingBin->setLat($item['geometry']['coordinates'][1]);
+                    }
+                    if ($existingBin->getLon() != $item['geometry']['coordinates'][0]) {
+                        $existingBin->setLon($item['geometry']['coordinates'][0]);
+                    }
                 }
             }
-
-
-
-            if (empty($item['fields']['voie']) || $item['fields']['voie'] == '') {
-                $item['fields']['voie'] = 'Rue inconnue';
-            }
-
-            if (empty($item['fields']['numero']) || $item['fields']['numero'] == '') {
-                $item['fields']['numero'] = 'Numero inconnu';
-            }
-            $bin['id'] = $item['recordid'];
-            $bin['address'] = $item['fields']['numero'] . ', ' . $item['fields']['voie'];
-            $bin['lat'] = $item['geometry']['coordinates'][1];
-            $bin['lon'] = $item['geometry']['coordinates'][0];
-            array_push($allBin, $bin);
         }
 
-        $yestes = [
-            'bin' => $allBin,
-            // 'city' => $allCity
+        $manager->flush();
+
+        $responseAPI = [
+            'newBin' => $newBinCreated
         ];
 
 
-        $content = $this->serializer->serialize($yestes, 'json', ['json_encode_options' => JSON_UNESCAPED_SLASHES]);
+        $content = $this->serializer->serialize($responseAPI, 'json', ['json_encode_options' => JSON_UNESCAPED_SLASHES]);
         $response = new Response();
         $response->setContent($content);
         $response->setStatusCode(Response::HTTP_OK);
