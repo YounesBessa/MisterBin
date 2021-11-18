@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211117131550 extends AbstractMigration
+final class Version20211118081659 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,16 +20,12 @@ final class Version20211117131550 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE bin DROP FOREIGN KEY FK_AA275AED8BAC62AF');
-        $this->addSql('DROP INDEX IDX_AA275AED8BAC62AF ON bin');
-        $this->addSql('ALTER TABLE bin DROP city_id');
+        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles LONGTEXT NOT NULL COMMENT \'(DC2Type:json)\', password VARCHAR(255) NOT NULL, is_verified TINYINT(1) NOT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE bin ADD city_id INT NOT NULL');
-        $this->addSql('ALTER TABLE bin ADD CONSTRAINT FK_AA275AED8BAC62AF FOREIGN KEY (city_id) REFERENCES city (id)');
-        $this->addSql('CREATE INDEX IDX_AA275AED8BAC62AF ON bin (city_id)');
+        $this->addSql('DROP TABLE user');
     }
 }

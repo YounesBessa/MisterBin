@@ -2,14 +2,15 @@
 
 namespace App\Controller;
 
+use App\Repository\BinRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ApiVillesController extends AbstractController
 {
@@ -37,15 +38,11 @@ class ApiVillesController extends AbstractController
         $this->entityManager = $em;
     }
 
-    #[Route('/getAllBin', name: 'getAllBin')]
-    public function index(): Response
+    #[Route('/getAllBin', name: 'getAllBin', methods: ['GET'])]
+    public function getAllBin(BinRepository $binRepository): Response
     {
-        $data = [
-            'data' => null,
-            'message' => 'Route api to get all bin'
-        ];
+        $data = $binRepository->findAll();
         $content = $this->serializer->serialize($data, 'json', ['json_encode_options' => JSON_UNESCAPED_SLASHES]);
-
         $response = new Response();
         $response->setContent($content);
         $response->setStatusCode(Response::HTTP_OK);
