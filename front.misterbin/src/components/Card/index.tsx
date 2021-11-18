@@ -24,14 +24,19 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-width: 280px;
+width: 220px;
 height: 350px;
 border-radius: 25px;
 z-index:3;
 position: relative;
 top: 40px;
-margin-right: 60px;
-margin-left: 60px;
+margin: 0 20px;
+@media screen and (max-width: 767px) {
+  margin: 30px 0;
+  }
+@media screen and (max-width: 779px) {
+  width: 190px;
+}
 `
   
 

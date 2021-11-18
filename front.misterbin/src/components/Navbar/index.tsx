@@ -1,48 +1,53 @@
 import styled from "styled-components";
 
 const Navbar: React.FC = () => {
-
   return (
     <Container>
+      <Nav>
       <NavLink href={"#"}>
-        {/* <BrandLogo
+              {/* <BrandLogo
           src={"./static/images/logo/onruntime.svg"}
           draggable={false}
           height={48}
           width={48}
         /> */}
-        <BrandTitle>MisterBin</BrandTitle>
-      </NavLink>
-      <Nav>
-        <NavItem>
-          <NavLink href={"#"}>
-            Accueil
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href={"#"}>
-            Voir les villes
-          </NavLink>
-        </NavItem>
+              MisterBin
+            </NavLink>
+        <NavList>
+          <NavItem>
+            <NavLink href={"#"}>Accueil</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href={"#"}>Voir les villes</NavLink>
+          </NavItem>
+        </NavList>
       </Nav>
     </Container>
   );
 };
 
-const Container = styled.nav`
+const Container = styled.div``;
+
+const Nav = styled.nav`
   display: flex;
-  width: 88%;
   height: 60px;
   margin: 0 auto;
   /* padding: 0 80px; */
   align-items: center;
   user-select: none;
-  justify-content: space-between;
-  background-color: #6EDE8A;
+  background-color: #6ede8a;
   border-bottom: 1px solid black;
   margin-bottom: 90px;
+  justify-content:space-between;
+  /* @media screen and (min-width: 537px) {
+    width: 88%;  
+    justify-content:space-between;
+  } */
+  /* @media screen and (max-width: 537px) {
+    width: 88%;  
+    justify-content:center;
+  } */
 `;
-
 
 // const BrandLogo = styled.img`
 //   height: 30px;
@@ -50,33 +55,31 @@ const Container = styled.nav`
 //   transform: scale(0.75);
 // `;
 
-const BrandTitle = styled.h1`
-  /* position: absolute; */
-  font-size: 18px;
-  right: -350%;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const Nav = styled.ul`
+const NavList = styled.ul`
   display: flex;
   align-items: center;
   text-align: center;
-  overflow-x: auto;
-  overflow-y: hidden;
+
   white-space: nowrap;
   margin-right: 25px;
+  @media screen and (min-width: 294px) {
+    margin:0px;
+    padding: 0px;
+    overflow-x: auto;
+  overflow-y: hidden;
+  }
 `;
 
 const NavItem = styled.span`
-  margin: 0 15px;
+  /* display: flex;
+justify-content:space-between;
+margin: 0 15px;
   :first-child {
-    margin-left: 0;
+    margin-right: 220px;
   }
   :last-child {
     margin-right: 0;
-  }
+  } */
 `;
 
 const NavLink = styled.a`
@@ -88,8 +91,11 @@ const NavLink = styled.a`
   align-items: center;
   text-decoration: none;
   margin-left: 25px;
-  :hover{
+  :hover {
     text-decoration: underline;
+  }
+  @media screen and (max-width: 354px) {
+    margin-left:5px;
   }
 `;
 

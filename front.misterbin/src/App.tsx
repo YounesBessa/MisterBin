@@ -78,6 +78,11 @@ const WhiteContainer = styled.div`
 const Featured = styled.div`
   display: flex;
   justify-content: space-evenly;
+  flex-direction: row;
+  @media screen and (max-width: 848px) {
+  flex-direction: column;
+  align-items: center;
+  }
 `;
 
 const FeaturedCard = styled(Card)`
@@ -88,6 +93,13 @@ const Title = styled.h1`
   text-align: center;
   width: 30%;
   font-weight: 400;
+  @media screen and (max-width: 375px) {
+  width: 70%;
+  }
+  @media screen and (max-width: 840px) {
+  width: 100%;
+  font-size: 30px;
+  }
 `;
 
 const BottomWrapper = styled.div`
@@ -109,6 +121,11 @@ const CardContainer = styled.div`
   display: flex;
   height: fit-content;
   width: 100%;
+  @media screen and (max-width: 767px) {
+  flex-direction: column;
+  align-items: center;
+  }
+  
 `;
 
 const BottomCard = styled(Card)`
