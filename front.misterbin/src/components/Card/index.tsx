@@ -27,10 +27,11 @@ align-items: center;
 width: 280px;
 height: 350px;
 border-radius: 25px;
-margin-top: 50px;
+z-index:3;
 position: relative;
 top: 40px;
-z-index:3
+margin-right: 60px;
+margin-left: 60px;
 `
   
 
