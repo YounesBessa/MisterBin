@@ -28,12 +28,12 @@ class Bin
     private $adress;
 
     /**
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(type="float")
      */
     private $lat;
 
     /**
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(type="float")
      */
     private $lon;
 
