@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import {NavLink} from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
     <Container>
       <Nav>
-      <NavLink href={"#"}>
+      <Link to={"/"}>
               {/* <BrandLogo
           src={"./static/images/logo/onruntime.svg"}
           draggable={false}
@@ -12,13 +13,13 @@ const Navbar: React.FC = () => {
           width={48}
         /> */}
               MisterBin
-            </NavLink>
+            </Link>
         <NavList>
           <NavItem>
-            <NavLink href={"#"}>Accueil</NavLink>
+            <Link to={"/"}>Accueil</Link>
           </NavItem>
           <NavItem>
-            <NavLink href={"#"}>Voir les villes</NavLink>
+            <Link to={"/map"}>Voir les villes</Link>
           </NavItem>
         </NavList>
       </Nav>
@@ -32,12 +33,10 @@ const Nav = styled.nav`
   display: flex;
   height: 60px;
   margin: 0 auto;
-  /* padding: 0 80px; */
   align-items: center;
   user-select: none;
   background-color: #6ede8a;
   border-bottom: 1px solid black;
-  margin-bottom: 90px;
   justify-content:space-between;
   /* @media screen and (min-width: 537px) {
     width: 88%;  
@@ -82,7 +81,7 @@ margin: 0 15px;
   } */
 `;
 
-const NavLink = styled.a`
+const Link = styled(NavLink)`
   position: relative;
   /* color: rgb(255, 255, 255); */
   color: #302225;
