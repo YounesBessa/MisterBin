@@ -3,6 +3,7 @@ import {Route, Routes} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Map from "./components/Map";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/map" element={<Map/>}/>
     </Routes>
+    <Footer/>
     </Container>
   );
 }
