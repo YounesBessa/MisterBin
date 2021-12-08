@@ -5,15 +5,7 @@ const Navbar: React.FC = () => {
   return (
     <Container>
       <Nav>
-        <Link to={"/"}>
-          {/* <BrandLogo
-          src={"./static/images/logo/onruntime.svg"}
-          draggable={false}
-          height={48}
-          width={48}
-        /> */}
-          MisterBin
-        </Link>
+        <Link to={"/"}>MisterBin</Link>
         <NavList>
           <NavItem>
             <Link to={"/"}>Accueil</Link>
@@ -39,21 +31,7 @@ const Nav = styled.nav`
   border-bottom: 1px solid black;
   justify-content: space-between;
   padding-right: 25px;
-  /* @media screen and (min-width: 537px) {
-    width: 88%;  
-    justify-content:space-between;
-  } */
-  /* @media screen and (max-width: 537px) {
-    width: 88%;  
-    justify-content:center;
-  } */
 `;
-
-// const BrandLogo = styled.img`
-//   height: 30px;
-//   width: auto;
-//   transform: scale(0.75);
-// `;
 
 const NavList = styled.ul`
   display: flex;
@@ -71,21 +49,10 @@ const NavList = styled.ul`
   }
 `;
 
-const NavItem = styled.span`
-  /* display: flex;
-justify-content:space-between;
-margin: 0 15px;
-  :first-child {
-    margin-right: 220px;
-  }
-  :last-child {
-    margin-right: 0;
-  } */
-`;
+const NavItem = styled.span``;
 
 const Link = styled(NavLink)`
   position: relative;
-  /* color: rgb(255, 255, 255); */
   color: #302225;
   font-weight: 400;
   display: flex;

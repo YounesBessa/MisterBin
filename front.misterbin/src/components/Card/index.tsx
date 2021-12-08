@@ -10,8 +10,6 @@ const Card: React.FC<Props> = ({ children }: Props) => {
 };
 
 const Container = styled.div`
-  /* background: linear-gradient(145.56deg, rgba(238, 238, 238, 0.6) 2.7%, rgba(238, 238, 238, 0.2) 97.86%); */
-  /* top: 40px; */
   margin: 0 70px;
   position: relative;
   background: linear-gradient(
@@ -63,20 +61,5 @@ const Container = styled.div`
     margin: 30px 0;
   }
 `;
-
-// const Container = styled.div`
-//   display: flex;
-//   width: 320px;
-//   height: 288px;
-//   /* margin: 0 auto; */
-//   /* padding: 0 80px; */
-//   margin-top: 70px;
-//   user-select: none;
-//   border-radius: 25px;
-//   /* justify-content: space-between; */
-//   background-color: white;
-//   opacity: 50%;
-//   border: 1px solid black;
-// `;
 
 export default Card;
