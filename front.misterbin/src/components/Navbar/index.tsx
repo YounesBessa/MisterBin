@@ -38,6 +38,7 @@ const Nav = styled.nav`
   background-color: #6ede8a;
   border-bottom: 1px solid black;
   justify-content:space-between;
+  padding-right: 25px;
   /* @media screen and (min-width: 537px) {
     width: 88%;  
     justify-content:space-between;
