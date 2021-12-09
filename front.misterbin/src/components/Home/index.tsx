@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import FeaturedCard from "../FeaturedCard";
 import Card from "../Card";
@@ -23,7 +24,7 @@ const Home: React.FC = () => {
                 width={120}
                 height={120}
               />
-              <Button>COMMENCER</Button>
+              <Button><Link to={"/map"}>Voir les villes</Link></Button>
             </FeaturedCard>
           </Featured>
         </GreenContainer>
@@ -51,13 +52,13 @@ const Home: React.FC = () => {
               <CenterCardContainer>
                 <BottomCard>
                   <CardTitle>TOULOUSE</CardTitle>
-                  <Button disabled>VOIR</Button>
+                  <Button>VOIR</Button>
                 </BottomCard>
               </CenterCardContainer>
               <RightCardContainer>
                 <BottomCard>
                   <CardTitle>LYON</CardTitle>
-                  <Button disabled>VOIR</Button>
+                  <Button>VOIR</Button>
                 </BottomCard>
               </RightCardContainer>
             </CardWrapper>
@@ -336,5 +337,7 @@ const Recycle = styled(Image)`
 `;
 
 const Ecologie = styled(Image)``;
+
+const Link = styled(NavLink)``;
 
 export default Home;
