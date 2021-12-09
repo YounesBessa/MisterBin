@@ -1,3 +1,3 @@
 {
-    "LoginText": "Cette page est une page de connexion qui est réservé aux membres de la société MisterBin. L'interface permet de gérer les bennes à ordures, de les contrôler, de les supprimer et en ajouter d'autres. Si il manque une benne à ordures sur le site n'hésitez pas à nous contacter à l'adresse suivante: support@misterbin.fr"
-  }
+  "LoginText": "Cette page de connexion donne accès à une interface sécurisée dont l’accès est réservé au personnel de MisterBin. L'interface admin permet de gérer les bennes à ordures, de les contrôler, de les supprimer et en ajouter d'autres. Si il manque une benne à ordures sur le site n'hésitez pas à nous contacter à l'adresse suivante: support@misterbin.fr"
+}
