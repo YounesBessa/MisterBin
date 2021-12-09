@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Map from "./components/Map";
 import Login from "./components/Login"
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/map" element={<Map/>}/>
       <Route path="/login" element={<Login/>}/>
     </Routes>
+    <Footer/>
     </Container>
   );
 }
