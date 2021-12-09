@@ -24,7 +24,9 @@ const Home: React.FC = () => {
                 width={120}
                 height={120}
               />
-              <Button><Link to={"/map"}>Voir les villes</Link></Button>
+              <Link to={"/map"}>
+              <Button>COMMENCER</Button>
+              </Link>
             </FeaturedCard>
           </Featured>
         </GreenContainer>
@@ -52,7 +54,9 @@ const Home: React.FC = () => {
               <CenterCardContainer>
                 <BottomCard>
                   <CardTitle>TOULOUSE</CardTitle>
+                  <Link to={"/map"}>
                   <Button>VOIR</Button>
+                  </Link>
                 </BottomCard>
               </CenterCardContainer>
               <RightCardContainer>
