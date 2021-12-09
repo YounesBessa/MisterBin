@@ -199,8 +199,8 @@ const LeftCardContainer = styled.div`
   ::after {
     position: absolute;
     content: "";
-    width: 180px;
-    height: 180px;
+    width: 120px;
+    height: 120px;
     background: linear-gradient(
       133.74deg,
       #70e000 44.13%,
@@ -208,7 +208,7 @@ const LeftCardContainer = styled.div`
     );
     z-index: 4;
     border-radius: 50%;
-    bottom: -30px;
+    bottom: -70px;
     right: 20px;
   }
   @media screen and (max-width: 1080px) {

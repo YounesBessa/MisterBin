@@ -62,6 +62,9 @@ const Link = styled(NavLink)`
   :hover {
     text-decoration: underline;
   }
+  @media screen and (min-width: 1224px) {
+    font-size: 20px;
+  }
   @media screen and (max-width: 354px) {
     margin-left: 5px;
   }

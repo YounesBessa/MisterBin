@@ -17,8 +17,8 @@ const Container = styled.div`
   border-bottom: 1px solid black;
   justify-content:space-between;
   margin-top: 80px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 `
 
 const Copyright = styled.p`
