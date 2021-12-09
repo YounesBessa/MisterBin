@@ -62,7 +62,7 @@ const Map: React.FC<Props> = ({ data }: Props) => {
 };
 
 const Container = styled.div`
-  heigth: 500px;
+  height: 500px;
 `;
 
 export default Map;
