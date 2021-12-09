@@ -25,6 +25,9 @@ import styled from "styled-components";
 import React from "react";
 
 const Login: React.FC = () => {
+
+  const data = require('./../../data.json');
+
   const [buttonActive, setButtonActive] = React.useState<boolean>(false);
 
   const handleInputChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,13 +45,36 @@ const Login: React.FC = () => {
   }, []);
 
   return (
-    <Container>
-      <Label>Connecter vous sur l'espace d'admin </Label>
-      <Input type="password" onChange={handleInputChange}></Input>
-      {/* {buttonActive ? <a href="http://127.0.0.1:8000/admin"></a> : <a>un autre bouton</a>} */}
-    </Container>
+    <Biggcontainer>
+      <Container>
+        <Label>Connecter vous sur l'espace d'admin </Label>
+        <Input type="password" onChange={handleInputChange}></Input>
+        {/* {buttonActive ? <a href="http://127.0.0.1:8000/admin"></a> : <a>un autre bouton</a>} */}
+      </Container>
+
+      <Container>
+        <Ptext>{data.LoginText}</Ptext>
+      </Container>
+
+      <Container>
+        <ImgDashboard src="/static/images/dashboard.png" alt="Dashboard" width={1020}/>
+      </Container>
+    </Biggcontainer>
   );
 };
+
+const Biggcontainer = styled.div`
+`;
+
+const ImgDashboard = styled.img`
+  border: 3px solid #eee;
+`;
+
+
+const Ptext = styled.div`
+  font-size: 18px;
+  margin: 0 200px;
+`; 
 
 const Input = styled.input`
   width: 300px;
@@ -64,5 +90,13 @@ const Container = styled.div`
   margin-top: 80px;
   font-size: 24px;
 `;
+
+const Textcontainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  font-size: 24px;
+`;
+
 
 export default Login;
