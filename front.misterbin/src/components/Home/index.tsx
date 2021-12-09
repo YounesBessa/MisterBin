@@ -24,8 +24,13 @@ const Home: React.FC = () => {
                 width={120}
                 height={120}
               />
-              <Link to={"/map"}>
-              <Button>COMMENCER</Button>
+              <Link
+                to={{
+                  pathname: "/map",
+                  search: "?center=user",
+                }}
+              >
+                <Button>COMMENCER</Button>
               </Link>
             </FeaturedCard>
           </Featured>
@@ -54,8 +59,13 @@ const Home: React.FC = () => {
               <CenterCardContainer>
                 <BottomCard>
                   <CardTitle>TOULOUSE</CardTitle>
-                  <Link to={"/map"}>
-                  <Button>VOIR</Button>
+                  <Link
+                    to={{
+                      pathname: "/map",
+                      search: "?center=toulouse",
+                    }}
+                  >
+                    <Button>VOIR</Button>
                   </Link>
                 </BottomCard>
               </CenterCardContainer>
