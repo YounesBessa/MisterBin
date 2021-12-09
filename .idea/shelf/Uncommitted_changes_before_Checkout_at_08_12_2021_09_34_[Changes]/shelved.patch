@@ -1,0 +1,21 @@
+Index: front.misterbin/src/components/Map/index.tsx
+===================================================================
+diff --git a/front.misterbin/src/components/Map/index.tsx b/front.misterbin/src/components/Map/index.tsx
+deleted file mode 100644
+--- a/front.misterbin/src/components/Map/index.tsx	(revision adbaeab39a6f018a8cbac540c2301288b88e393b)
++++ /dev/null	(revision adbaeab39a6f018a8cbac540c2301288b88e393b)
+@@ -1,13 +0,0 @@
+-import styled from "styled-components";
+-
+-const Map: React.FC = () => {
+-  return (
+-    <Container>
+-      Ce sera la page de la map.
+-    </Container>
+-  );
+-};
+-
+-const Container = styled.div``;
+-
+-export default Map;
+\ No newline at end of file

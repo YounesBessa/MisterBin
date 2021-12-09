@@ -23,7 +23,11 @@ const Home: React.FC = () => {
                 width={120}
                 height={120}
               />
-              <Button>COMMENCER</Button>
+              <a href="/map">
+                <Button>
+                  COMMENCER
+                </Button>
+              </a>
             </FeaturedCard>
           </Featured>
         </GreenContainer>
@@ -33,8 +37,12 @@ const Home: React.FC = () => {
             <SecondTitle>LISTE DES VILLES DISPONIBLES</SecondTitle>
             <CardContainer>
               <BottomCard>
-                <CardTitle>TOULOUSE</CardTitle>
-                <Button>VOIR</Button>
+                <a href="/toulouse">
+                  <CardTitle>TOULOUSE</CardTitle>
+                </a>
+                <a href="/toulouse">
+                  <Button>VOIR</Button>
+                </a>
               </BottomCard>
               <BottomCard>
               <CardTitle>PARIS</CardTitle>
