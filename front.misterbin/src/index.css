@@ -1,19 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap");
 
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 @keyframes InfiniteRotation {
-  0%{
-    transform: rotate(0)
+  0% {
+    transform: rotate(0);
   }
-  100%{
-    transform: rotate(360deg)
+  100% {
+    transform: rotate(360deg);
   }
+}
+
+.marker {
+  background-color: blue;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  cursor: pointer;
 }
