@@ -5,8 +5,8 @@ import { Bin } from "../../types/bin";
 import mapboxgl from "mapbox-gl";
 import "../../style/mapbox-gl.css";
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiZ3JlYXRlcmRvZ2ZyIiwiYSI6ImNrdzMxaThqNGJ1bDUycHF3ZWl5ejlxcmkifQ.owRyRg_BGO39ft8ETKVT2w";
+//@ts-ignores
+mapboxgl.accessToken = process.env.REACT_APP_ACCESS_TOKEN_MAPBOX;
 
 type Props = {
   data: Bin[];
@@ -20,7 +20,7 @@ const Map: React.FC<Props> = ({ data }: Props) => {
   useEffect(() => {
     const nodeMap = mapContainer.current;
     if (typeof window === "undefined" || nodeMap === null) return;
-    console.log(process.env.REACT_APP_ACCESS_TOKEN_MAPBOX);
+
     //@ts-ignore
     const currentMap = new mapboxgl.Map({
       //@ts-ignore
@@ -54,8 +54,33 @@ const Map: React.FC<Props> = ({ data }: Props) => {
     };
   }, [data]);
 
+  const handleCurrentPosition = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      if (map) {
+        map.flyTo({
+          center: [position.coords.longitude, position.coords.latitude],
+          zoom: 15,
+          bearing: 0,
+          essential: true,
+        });
+        // if (currentPositionMarker) currentPositionMarker.remove();
+
+        // const el = document.createElement("div");
+        // el.className = "marker";
+
+        // const marker = new mapboxgl.Marker(el)
+        //   .setLngLat([position.coords.longitude, position.coords.latitude])
+        //   .addTo(map);
+        // setCurrentPositionMarker(marker);
+      }
+    });
+  };
+
   return (
     <Container>
+      <BtnCurrentPosition onClick={handleCurrentPosition}>
+        Se Géolocaliser
+      </BtnCurrentPosition>
       <div ref={mapContainer}></div>
     </Container>
   );
@@ -64,5 +89,7 @@ const Map: React.FC<Props> = ({ data }: Props) => {
 const Container = styled.div`
   heigth: 500px;
 `;
+
+const BtnCurrentPosition = styled.button``;
 
 export default Map;
