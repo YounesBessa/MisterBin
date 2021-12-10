@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Bin } from "../../types/bin";
 import mapboxgl from "mapbox-gl";
 import "../../style/mapbox-gl.css";
+import Wave from "../Wave";
 
 //@ts-ignores
 mapboxgl.accessToken = process.env.REACT_APP_ACCESS_TOKEN_MAPBOX;
@@ -14,6 +15,8 @@ type Props = {
 
 const Map: React.FC<Props> = ({ data }: Props) => {
   const [map, setMap] = useState<mapboxgl.Map | null>(null);
+  const [currentPositionMarker, setCurrentPositionMarker] =
+    useState<mapboxgl.Marker | null>(null);
 
   const mapContainer = useRef(null);
 
@@ -63,33 +66,79 @@ const Map: React.FC<Props> = ({ data }: Props) => {
           bearing: 0,
           essential: true,
         });
-        // if (currentPositionMarker) currentPositionMarker.remove();
+        if (currentPositionMarker) currentPositionMarker.remove();
 
-        // const el = document.createElement("div");
-        // el.className = "marker";
+        const el = document.createElement("div");
+        el.className = "marker";
 
-        // const marker = new mapboxgl.Marker(el)
-        //   .setLngLat([position.coords.longitude, position.coords.latitude])
-        //   .addTo(map);
-        // setCurrentPositionMarker(marker);
+        const marker = new mapboxgl.Marker(el)
+          .setLngLat([position.coords.longitude, position.coords.latitude])
+          .addTo(map);
+        setCurrentPositionMarker(marker);
       }
     });
   };
 
   return (
     <Container>
-      <BtnCurrentPosition onClick={handleCurrentPosition}>
-        Se Géolocaliser
-      </BtnCurrentPosition>
-      <div ref={mapContainer}></div>
+      <Wave />
+      <ContentArea>
+        <BtnCurrentPosition onClick={handleCurrentPosition}>
+          Se Géolocaliser
+        </BtnCurrentPosition>
+      </ContentArea>
+      <MapContent>
+        <MapArea ref={mapContainer}></MapArea>
+      </MapContent>
     </Container>
   );
 };
 
-const Container = styled.div`
-  height: 500px;
+const Container = styled.div``;
+
+const MapContent = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+const MapArea = styled.div`
+  width: 95%;
 `;
 
-const BtnCurrentPosition = styled.button``;
+const ContentArea = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 60px 0 30px 0;
+`;
+const BtnCurrentPosition = styled.button`
+  margin: 20px;
+  position: relative;
+  padding: 10px;
+  height: 50px;
+  z-index: 5;
+  width: 130px;
+  border: none;
+  background-color: #6ede8a;
+  transition: all 0.3s;
+
+  ::after {
+    width: 128px;
+    height: 48px;
+    position: absolute;
+    content: "";
+    border: 1px solid black;
+    top: -5px;
+    left: -5px;
+    transition: all 0.3s;
+  }
+
+  :hover {
+    cursor: pointer;
+    ::after {
+      top: 0px;
+      left: 0px;
+    }
+  }
+`;
 
 export default Map;
