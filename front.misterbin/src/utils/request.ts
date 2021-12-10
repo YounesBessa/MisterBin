@@ -2,7 +2,7 @@ import { ApiRequestConfig, ApiResponse } from "../types/api";
 import axios from "axios";
 
 const createApiUrl = (url: string): string => {
-  return `http://127.0.0.1:8000${url}`;
+  return `${process.env.REACT_APP_API_PATH}${url}`;
 };
 
 export const request = async <T>(

@@ -27,7 +27,6 @@ const Home: React.FC = () => {
               <Link
                 to={{
                   pathname: "/map",
-                  search: "?center=user",
                 }}
               >
                 <Button>COMMENCER</Button>
@@ -62,7 +61,6 @@ const Home: React.FC = () => {
                   <Link
                     to={{
                       pathname: "/map",
-                      search: "?center=toulouse",
                     }}
                   >
                     <Button>VOIR</Button>
