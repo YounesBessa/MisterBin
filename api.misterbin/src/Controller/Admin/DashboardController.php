@@ -14,11 +14,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends AbstractDashboardController
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/admincGAJygygzuApWLGGnuRSmyxRxQbRjgQPrvBiXrsEBXzjPSJaqDAGLbGVxfuyVRcT", name="admin")
      */
     public function index(): Response
     {
-        return parent::index();
+        // return parent::index();
+
+        $routeBuilder = $this->get(AdminUrlGenerator::class);
+
+        return $this->redirect($routeBuilder->setController(BinCrudController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard
@@ -30,7 +34,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
+        //  yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
          yield MenuItem::linkToCrud('Gestion des bennes', 'fas fa-map-marker-alt', Bin::class);
          yield MenuItem::linkToUrl('Mister Bin', 'fas fa-wine-bottle', 'https://localhost:3000');
     }

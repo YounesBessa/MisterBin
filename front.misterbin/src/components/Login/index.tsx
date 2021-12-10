@@ -37,7 +37,7 @@ const Login: React.FC = () => {
     const { value } = event.target;
 
     if (value === comparisonString) {
-      window.location.href='http://127.0.0.1:8000/admin'
+      window.location.href='http://127.0.0.1:8000/admincGAJygygzuApWLGGnuRSmyxRxQbRjgQPrvBiXrsEBXzjPSJaqDAGLbGVxfuyVRcT'
       // setButtonActive(true);
     }else{
       // setButtonActive(false);
