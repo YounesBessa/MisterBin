@@ -36,6 +36,6 @@ class DashboardController extends AbstractDashboardController
     {
         //  yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
          yield MenuItem::linkToCrud('Gestion des bennes', 'fas fa-map-marker-alt', Bin::class);
-         yield MenuItem::linkToUrl('Mister Bin', 'fas fa-wine-bottle', 'https://localhost:3000');
+         yield MenuItem::linkToUrl('Mister Bin', 'fas fa-wine-bottle', 'http://localhost:3000');
     }
 }
