@@ -6,6 +6,7 @@ import Card from "../Card";
 import Wave from "../Wave";
 import Image from "../Image";
 import Button from "../Button";
+import GreyButton from "../GreyButton";
 
 const Home: React.FC = () => {
   return (
@@ -52,7 +53,7 @@ const Home: React.FC = () => {
               <LeftCardContainer>
                 <BottomCard>
                   <CardTitle>PARIS</CardTitle>
-                  <Button>VOIR</Button>
+                  <GreyButton>A VENIR</GreyButton>
                 </BottomCard>
               </LeftCardContainer>
               <CenterCardContainer>
@@ -70,7 +71,7 @@ const Home: React.FC = () => {
               <RightCardContainer>
                 <BottomCard>
                   <CardTitle>LYON</CardTitle>
-                  <Button>VOIR</Button>
+                  <GreyButton>A VENIR</GreyButton>
                 </BottomCard>
               </RightCardContainer>
             </CardWrapper>
@@ -204,7 +205,7 @@ const LeftCardContainer = styled.div`
     content: "";
     width: 180px;
     height: 180px;
-    background: #2dc653;
+    background: grey;
     z-index: 4;
     border-radius: 50%;
     top: -40px;
@@ -216,7 +217,7 @@ const LeftCardContainer = styled.div`
     height: 120px;
     background: linear-gradient(
       133.74deg,
-      #70e000 44.13%,
+      grey 44.13%,
       rgba(0, 128, 0, 0) 93.68%
     );
     z-index: 4;
@@ -279,7 +280,7 @@ const RightCardContainer = styled.div`
     content: "";
     width: 150px;
     height: 150px;
-    background: #2dc653;
+    background: grey;
     z-index: 4;
     border-radius: 50%;
     top: -40px;
@@ -290,10 +291,9 @@ const RightCardContainer = styled.div`
     content: "";
     width: 180px;
     height: 180px;
-    background: #70e000;
     background: linear-gradient(
       133.74deg,
-      #70e000 44.13%,
+      grey 44.13%,
       rgba(0, 128, 0, 0) 93.68%
     );
     z-index: 4;
