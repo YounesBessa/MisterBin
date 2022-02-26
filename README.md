@@ -1,67 +1,81 @@
+
 # MisterBin
 
-Une petite description du projet
+This is a Need For School group project.  
+The goal was to develop a "web-based solution" that allows users to find the nearest glass bin.
 
-## Pour commencer
+## Authors
 
-Initialisez ce repo sur votre pc
+- **[Younes BESSA](https://github.com/YounesBessa/)**
+- **[Lucas BELLIER](https://github.com/ImJustLucas/)**
+- **[Theo MAUDET](https://github.com/CesTheo)**
+- **[Benjamin HERVE](https://github.com/GreaterDogFr)**
 
-### Pré-requis
+## Color Reference
 
-Ce qu'il est requis pour commencer avec votre projet...
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Light Green | ![#6edd8a](https://via.placeholder.com/10/6edd8a?text=+) #6edd8a |
+| Dark Green | ![#008001](https://via.placeholder.com/10/008001?text=+) #008001 |
+| White | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
+| Grey | ![#808080](https://via.placeholder.com/10/808080?text=+) #808080 |
+| Black | ![#302225](https://via.placeholder.com/10/302225?text=+) #302225 |
 
-- Composer
-- Node
-- NPM ou YARN
-- PHP 8
 
-### Installation
 
-Une fois le repo téléchargé, lancez un terminal
+## Features
 
-**API
+- Developed in Php with the Symfony Framework (5.3)
+- Database management system
+- Secure data flow between the app and the database
+- ...
+## Run Locally
 
-``` 
-> cd api.misterbin
-> composer install
+You'll need Composer, Node, NPM or YARN, PHP 8
+
+Clone the project
+
+```bash
+  git clone https://github.com/YounesBessa/MisterBin.git
 ```
 
-**Front
+Go to the project directory
 
+API
+
+```bash
+  cd api.misterbin
+  composer install
 ```
-> cd front.misterbin
-> yarn install
+Front
+
+```bash
+  cd front.misterbin
+  npm install or yarn install
 ```
+Start the project
 
-## Démarrage
+API
 
-
-Une fois le repo installé, lancez un terminal
-
-**API
-
-``` 
-> cd api.misterbin
-> symfony server:start
-```
-
-**Front
-
-Une fois l'API lancé, ouvrez un nouveau terminal
-
-```
-> cd front.misterbin
-> yarn start
+```bash
+  cd api.misterbin
+  symfony server:start
 ```
 
-## Fabriqué avec
+Front
 
-* [React.js](https://fr.reactjs.org/) - Framework JS (front-end)
+```bash
+  cd front.misterbin
+  npm start or yarn start
+```
 
-## Auteurs
-Les auteurs du projet ici !
 
-**Lucas BELLIER** _alias_ [@ImJustLucas](https://github.com/ImJustLucas)<br>
-**Théo MAUDET** _alias_ [@CesTheo](https://github.com/CesTheo)<br>
-**Younes BESSA** _alias_ [@YounesBessa](https://github.com/YounesBessa)<br>
-**Benjamin HERVE** _alias_ [@GreaterDogFr](https://github.com/GreaterDogFr)
+## Screenshot
+
+![App Screenshot](https://i.imgur.com/ITVKENt.png)
+
+## Tech Stack
+
+**Client:** React, TypeScript, styled-components
+
+**Server:** PHP (Symfony)
